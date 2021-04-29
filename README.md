@@ -16,7 +16,7 @@ k-wave toolbox provides a framework for generate the simulation data.
 
 ### Instructions to run on the data
 
-1. In MATLAB, please run  **Simulation.m** to generate data (it may take several minutes), or directly use **Data.mat**.
+1. In MATLAB, please run  **Simulation.m** to generate data (it may take several minutes), or directly use **Data.mat** (No need k-wave toolbox).
 2. run **PS-NUFFT .m** to reconstruction the image.
 
 
