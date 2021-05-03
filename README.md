@@ -17,11 +17,11 @@ k-wave toolbox provides a framework for generate the simulation data.
 ### Instructions to run on the data
 
 1. In MATLAB, please run  **Simulation.m** to generate data (it may take several minutes), or directly use **Data.mat** (No need k-wave toolbox).
-2. run **PS-NUFFT .m** to reconstruction the image.
+2. run **Run.m** to reconstruction the image.
 
 
 
-There are detailed description of the code's functionality in the source code (**Simulation.m**, **PS-NUFFT .m**, **Omega_K_3D_NUFFT.m**, **InterpNUFFT.m**, **InterpSinc.m**)
+There are detailed description of the code's functionality in the source code (**Simulation.m**, **Run .m**, PS_3D_NUFFT.m**, **InterpNUFFT.m**, **InterpSinc.m**)
 
 In  **Simulation.m**, you can change parameters **source.p0 (optoacoustic sources) ** to generate yourself simulation data. 
 
