@@ -26,9 +26,8 @@ dz = c*dt;
 cmax = max(c);
 maxdz = max(dz);            % The reconstructed dz precison is determined by the maxdz
 
-% Reconstructed Image z-axis
-z_end = cumsum(th./c/dt); z_end =  round((L - round(z_end(end)))*dt*c(end)/maxdz);
-z_indexs = cumsum(round(th/maxdz))+1; z_indexs = [z_indexs,z_indexs(end)+z_end];
+z_end = cumsum(th(2:end)./c(2:end-1)/dt); z_end =  (L - round(z_end(end)))*dt*c(end)/maxdz +1;
+z_indexs = cumsum(round(th/maxdz))+1;
 
 maxlayer = length(th);
 
@@ -64,12 +63,10 @@ E_P0wk = E_P0wk.*exp(1i.*gkz*(th(layers)));
 %% NUFFT migration
 f = gw;
 fkz = ERMv(layers+1)*sign(f).*sqrt(gkx.^2+gky.^2 + f.^2/ERMv(layers+1)^2); 
-
-if(density ==1)
-fftRF = interp3(gkx,f,gky,E_P0wk,gkx,fkz,gky,'linear',0);
-else
+                                       
+%fftRF = interp3(gkx,f,gky,E_P0wk,gkx,fkz,gky,'linear',0);
 fftRF = InterpNUFFT(f,kx,ky,E_P0wk,fkz,gkx,gky,density);
-end
+
 % Jacobian (optional)
 %kz = (-newN/2:newN/2-1)'/ERMv/fs/newN;
 gkz = f/ERMv(layers+1);     
@@ -84,8 +81,8 @@ fftdata(Nw1:Nw2,:,:) = (fftRF);
 fftRF = fftdata;
 
 % IFFT & Migrated RF
-Lz = 1:z_indexs((layers+1))-z_indexs(layers)+1;
+Lz = z_indexs(layers+1
 Temp = ifftn(ifftshift(fftRF),'nonsymmetric');
-migRF(z_indexs(layers):z_indexs(layers+1),:,:) = Temp(Lz,1:M,1:N);
+migRF() = Temp(1:L,1:M,1:N);
 end
 end
