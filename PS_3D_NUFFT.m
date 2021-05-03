@@ -1,4 +1,4 @@
-function  migRF = Omega_K_3D_NUFFT(rfdata,fs,pitch,disp,layer,c,fmin,fmax,focus_length,density)
+function  migRF = PS_3D_NUFFT(rfdata,fs,pitch,disp,layer,c,fmin,fmax,focus_length,density)
 
 %%
 [L,M,N]= size(rfdata);      %L is time axis, M,N are x-y axis
